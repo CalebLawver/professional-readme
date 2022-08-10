@@ -60,12 +60,12 @@ const questions = [
     {
         type: 'input',
         name: 'Contributing',
-        message: 'How do you install your project? *Required*',
+        message: 'How can people contribute to this project? *Required*',
         validate: input => {
             if (input) {
                 return true;
             } else {
-                console.log('You need to provide installation instructions!');
+                console.log('You need to tell people how they can contribute!');
                 return false;
             }
         }
@@ -73,12 +73,12 @@ const questions = [
     {
         type: 'input',
         name: 'Test',
-        message: 'How do you install your project? *Required*',
+        message: 'How do you test your project? *Required*',
         validate: input => {
             if (input) {
                 return true;
             } else {
-                console.log('You need to provide installation instructions!');
+                console.log('You need to inform people how they can test this project!');
                 return false;
             }
         }
@@ -86,12 +86,13 @@ const questions = [
     {
         type: 'input',
         name: 'License',
-        message: 'How do you install your project? *Required*',
+        message: 'Choose the license for this project? *Required*',
+        choice: ['Apache', 'MIT', 'Mozilla-Public', 'GNU-General-Public', 'Common-Development-and Distribution', 'None'],
         validate: input => {
             if (input) {
                 return true;
             } else {
-                console.log('You need to provide installation instructions!');
+                console.log('You must pick a license!');
                 return false;
             }
         }
@@ -99,12 +100,12 @@ const questions = [
     {
         type: 'input',
         name: 'Github',
-        message: 'How do you install your project? *Required*',
+        message: 'Enter your GitHub username *Required*',
         validate: input => {
             if (input) {
                 return true;
             } else {
-                console.log('You need to provide installation instructions!');
+                console.log('You need to provide your GitHub username!');
                 return false;
             }
         }
@@ -112,23 +113,26 @@ const questions = [
     {
         type: 'input',
         name: 'email',
-        message: 'How do you install your project? *Required*',
-        validate: input => {
-            if (input) {
-                return true;
-            } else {
-                console.log('You need to provide installation instructions!');
-                return false;
-            }
-        }
+        message: 'Enter your email. (ONLY IF YOU WANT IT INCLUDED)',
     },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) throw err;
+        console.log("You've made your README.")
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then(function (input) {
+        console.log(input)
+        writeToFile("README.md", generateMarkdown(input));
+    });
+};
 
 // Function call to initialize app
 init();
