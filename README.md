@@ -20,6 +20,7 @@
 
   ## Usage
   type "node index.js" into the console and run through the prompts.
+  https://drive.google.com/file/d/1UiQpnvW9yHhmXrvC0SsQH86_AJ1WZJe0/view
 
   ## Contributions
   Reach out to me through my contact section
