@@ -34,7 +34,7 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'How do you install your project? *Required*';
+        message: 'How do you install your project? *Required*',
         validate: input => {
             if (input) {
                 return true;
@@ -44,7 +44,84 @@ const questions = [
             }
         }
     },
-    
+    {
+        type: 'input',
+        name: 'Usage',
+        message: 'How do you install your project? *Required*',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('You need to provide installation instructions!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'Contributing',
+        message: 'How do you install your project? *Required*',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('You need to provide installation instructions!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'Test',
+        message: 'How do you install your project? *Required*',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('You need to provide installation instructions!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'License',
+        message: 'How do you install your project? *Required*',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('You need to provide installation instructions!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'Github',
+        message: 'How do you install your project? *Required*',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('You need to provide installation instructions!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'How do you install your project? *Required*',
+        validate: input => {
+            if (input) {
+                return true;
+            } else {
+                console.log('You need to provide installation instructions!');
+                return false;
+            }
+        }
+    },
 ];
 
 // TODO: Create a function to write README file
