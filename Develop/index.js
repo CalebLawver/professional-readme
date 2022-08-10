@@ -84,10 +84,10 @@ const questions = [
         }
     },
     {
-        type: 'input',
-        name: 'License',
+        type: 'checkbox',
+        name: 'license',
         message: 'Choose the license for this project? *Required*',
-        choice: ['Apache', 'MIT', 'Mozilla-Public', 'GNU-General-Public', 'Common-Development-and Distribution', 'None'],
+        choice: ['Artistic-2.0', 'Apache-2.0', 'BSD-3-Clause', 'BSD 2-Clause', 'EPL-1.0', 'IPL-1.0', 'ISC', 'MIT', 'MPL-2.0', 'OFL-1.1'],
         validate: input => {
             if (input) {
                 return true;
@@ -113,7 +113,7 @@ const questions = [
     {
         type: 'input',
         name: 'email',
-        message: 'Enter your email. (ONLY IF YOU WANT IT INCLUDED)',
+        message: 'Enter your email. (Or other contact information if you want people to be able to contact you.)',
     },
 ];
 
@@ -128,9 +128,9 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(function (input) {
-        console.log(input)
-        writeToFile("README.md", generateMarkdown(input));
+    .then(inputData => {
+        console.log('Creating your README!')
+        writeToFile("README.md", generateMarkdown(inputData));
     });
 };
 
