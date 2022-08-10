@@ -46,7 +46,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'Usage',
+        name: 'usage',
         message: 'How do you install your project? *Required*',
         validate: input => {
             if (input) {
@@ -59,7 +59,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'Contributing',
+        name: 'contributing',
         message: 'How can people contribute to this project? *Required*',
         validate: input => {
             if (input) {
@@ -72,7 +72,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'Test',
+        name: 'test',
         message: 'How do you test your project? *Required*',
         validate: input => {
             if (input) {
@@ -99,21 +99,21 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'Github',
-        message: 'Enter your GitHub username *Required*',
+        name: 'github',
+        message: 'Enter your GitHub repository. *Required*',
         validate: input => {
             if (input) {
                 return true;
             } else {
-                console.log('You need to provide your GitHub username!');
+                console.log('You need to provide your GitHub!');
                 return false;
             }
         }
     },
     {
         type: 'input',
-        name: 'email',
-        message: 'Enter your email. (Or other contact information if you want people to be able to contact you.)',
+        name: 'contact',
+        message: 'Enter your contact information. (Or leave blank)',
     },
 ];
 
