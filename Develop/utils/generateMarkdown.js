@@ -25,6 +25,13 @@ function renderLicenseSection(license) {
   return ''
 }
 
+function renderLicenseStuff(license) {
+  if (license) {
+    return `[License](#license)`
+  }
+  return ''
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
@@ -40,7 +47,7 @@ function generateMarkdown(data) {
 
   [Testing](#testing)
 
-  ${renderLicenseContent(data.license)}
+  ${renderLicenseStuff(data.license)}
 
   [Contact](#contact)
 

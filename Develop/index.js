@@ -47,7 +47,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'How do you install your project? *Required*',
+        message: 'How do you use your project? *Required*',
         validate: input => {
             if (input) {
                 return true;
@@ -86,16 +86,8 @@ const questions = [
     {
         type: 'checkbox',
         name: 'license',
-        message: 'Choose the license for this project? *Required*',
-        choice: ['Artistic-2.0', 'Apache-2.0', 'BSD-3-Clause', 'BSD 2-Clause', 'EPL-1.0', 'IPL-1.0', 'ISC', 'MIT', 'MPL-2.0', 'OFL-1.1'],
-        validate: input => {
-            if (input) {
-                return true;
-            } else {
-                console.log('You must pick a license!');
-                return false;
-            }
-        }
+        message: 'Choose the license for this project? *Check the ones that are used*',
+        choices: ['Artistic-2.0', 'Apache-2.0', 'BSD-3-Clause', 'BSD 2-Clause', 'EPL-1.0', 'IPL-1.0', 'ISC', 'MIT', 'MPL-2.0', 'OFL-1.1']
     },
     {
         type: 'input',
@@ -130,8 +122,9 @@ function init() {
     inquirer.prompt(questions)
     .then(inputData => {
         console.log('Creating your README!')
-        writeToFile("README.md", generateMarkdown(inputData));
-    });
+        return writeToFile("./dist/README.md", generateMarkdown(inputData));
+    })
+    .catch(err => console.log(err));
 };
 
 // Function call to initialize app
